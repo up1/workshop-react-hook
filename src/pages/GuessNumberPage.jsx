@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Navbar } from "../components/Navbar.jsx";
 
 export const GuessNumberPage = () => {
+
+  console.log('rendering GuessNumberPage')
+
   const [correctNumber, setCorrectNumber] = useState(Math.floor(Math.random() * 100) + 1)
   const [guessingNumber, setGuessingNumber] = useState('')
   const [hint, setHint] = useState('')

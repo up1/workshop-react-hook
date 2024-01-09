@@ -14,13 +14,13 @@ export const GuessNumberPage = () => {
   function guess() {
     let hint = ""
     if (guessingNumber == correctNumber) {
-      hint = "Correct!! Congratulations~~"
+      hint = "Correct!! Congratulations!!"
     }
     if (guessingNumber < correctNumber) {
-      hint = "too less"
+      hint = "Too less"
     }
     if (guessingNumber > correctNumber) {
-      hint = "too high"
+      hint = "Too high"
     }
 
     setHint(hint)
@@ -35,8 +35,7 @@ export const GuessNumberPage = () => {
   return (
     <div>
       <Navbar/>
-
-      <h1>Let's guess the number (1-100)</h1>
+      <h1>Guess the number (1-100)</h1>
       <input value={guessingNumber} type="number" onChange={updateGuessedNumber}/> <br/>
       <button onClick={guess}>Guess</button>
       <button onClick={reset}>Reset</button>

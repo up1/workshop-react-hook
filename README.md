@@ -8,5 +8,10 @@ $npm i
 $npm run dev
 ```
 
-## List of tasks
-* 
+## Home page
+
+
+## Guess number page
+
+
+## Challenge page

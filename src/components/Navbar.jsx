@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   return (
@@ -10,7 +10,7 @@ export const Navbar = () => {
           <NavLink to="/game">Game</NavLink>
         </nav>
       </div>
-      <hr/>
+      <hr />
     </>
   )
 }

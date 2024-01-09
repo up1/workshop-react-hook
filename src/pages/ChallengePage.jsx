@@ -1,10 +1,10 @@
-import {useState} from "react";
+import { useState } from "react";
 
 const useTextDecryption = (data, interval = 3000) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-// TODO: rotate index every interval
-// TODO: generate random text (hint: need another hook)
+  // TODO: rotate index every interval
+  // TODO: generate random text (hint: need another hook)
 
   return [data[currentIndex], '']
 }
@@ -20,7 +20,7 @@ export const ChallengePage = () => {
     <div>
       <h1>
         {text}{randomText}
-      < /h1>
+        < /h1>
     </div>
   )
 }

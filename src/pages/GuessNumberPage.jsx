@@ -37,7 +37,7 @@ export const GuessNumberPage = () => {
       <Navbar/>
 
       <h1>Let's guess the number (1-100)</h1>
-      <input value={guessingNumber} type={"number"} onChange={updateGuessedNumber}/> <br/>
+      <input value={guessingNumber} type="number" onChange={updateGuessedNumber}/> <br/>
       <button onClick={guess}>Guess</button>
       <button onClick={reset}>Reset</button>
       <h2>{hint}</h2>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Navbar } from "../components/Navbar.jsx";
+import {v4 as uuidv4} from 'uuid';
 
 export const GuessNumberPage = () => {
 
@@ -8,6 +9,7 @@ export const GuessNumberPage = () => {
   const [correctNumber, setCorrectNumber] = useState(Math.floor(Math.random() * 100) + 1)
   const [guessingNumber, setGuessingNumber] = useState('')
   const [hint, setHint] = useState('')
+  const [guessedNumbers, setGuessedNumbers] = useState([])
   console.log('correct number: ', correctNumber)
 
   function updateGuessedNumber(e) {
@@ -27,12 +29,14 @@ export const GuessNumberPage = () => {
     }
 
     setHint(hint)
+    setGuessedNumbers([{ id: uuidv4(), number: guessingNumber, hint }, ...guessedNumbers])
   }
 
   const reset = () => {
     setCorrectNumber(Math.floor(Math.random() * 100) + 1)
     setGuessingNumber('')
     setHint('')
+    setGuessedNumbers([])
   }
 
   return (
@@ -43,6 +47,9 @@ export const GuessNumberPage = () => {
       <button onClick={guess}>Guess</button>
       <button onClick={reset}>Reset</button>
       <h2>{hint}</h2>
+      {guessedNumbers.map((item) => (<div key={item.id}>
+        {item.number} is {item.hint}
+      </div>))}
     </div>
   )
 }

@@ -5,6 +5,9 @@ import { GuessNumberPage } from "./pages/GuessNumberPage.jsx";
 import { ChallengePage } from "./pages/ChallengePage.jsx";
 import { NotFoundPage } from './pages/NotFoundPage.jsx';
 
+import { useAuthContext } from "./hooks/useAuth.js";
+import { AuthContext } from "./contexts/AuthContext.js";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,8 +28,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const authContextValue = useAuthContext()
   return (
-    <RouterProvider router={router} />
+    <AuthContext.Provider value={authContextValue}>
+      <RouterProvider router={router} />
+    </AuthContext.Provider>
   )
 }
 

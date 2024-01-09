@@ -1,6 +1,7 @@
 import { Navbar } from "../components/Navbar.jsx";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useFetch } from "../hooks/useFetch.js";
+import { AuthContext } from "../contexts/AuthContext.js";
 
 const COVER_COUNT = 10
 const MIN_DURATION = 1
@@ -10,6 +11,9 @@ export const HomePage = () => {
   const coverImages = useFetch(`https://shibe.online/api/shibes?count=${COVER_COUNT}`, [])
   const [currentIdx, setCurrentIdx] = useState(0)
   const [transitionDuration, setTransitionDuration] = useState(1)
+
+  const authContext = useContext(AuthContext)
+  console.log('authContext from guess page: ', authContext)
 
   useEffect(() => {
     const duration = transitionDuration < MIN_DURATION ? MIN_DURATION : transitionDuration

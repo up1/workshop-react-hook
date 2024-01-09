@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Navbar } from "../components/Navbar.jsx";
 import {v4 as uuidv4} from 'uuid';
+import { AuthContext } from "../contexts/AuthContext.js";
 
 export const GuessNumberPage = () => {
 
   console.log('rendering GuessNumberPage')
+  const authContext = useContext(AuthContext)
+  console.log('authContext from guess page: ', authContext)
 
   const [correctNumber, setCorrectNumber] = useState(Math.floor(Math.random() * 100) + 1)
   const [guessingNumber, setGuessingNumber] = useState('')

@@ -5,9 +5,6 @@ import { GuessNumberPage } from "./pages/GuessNumberPage.jsx";
 import { ChallengePage } from "./pages/ChallengePage.jsx";
 import { NotFoundPage } from './pages/NotFoundPage.jsx';
 
-import { useAuthContext } from "./hooks/useAuth.js";
-import { AuthContext } from "./contexts/AuthContext.js";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,12 +24,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+import { Provider } from 'react-redux'
+import store from './redux/store.js'
+
 function App() {
-  const authContextValue = useAuthContext()
   return (
-    <AuthContext.Provider value={authContextValue}>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </AuthContext.Provider>
+    </Provider>
   )
 }
 

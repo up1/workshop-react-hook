@@ -1,9 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { useContext } from 'react';
-import { AuthContext } from "../contexts/AuthContext";
+import {login, logout} from '../redux/authSlice.js'
+import { useDispatch, useSelector } from 'react-redux'
+
 export const Navbar = () => {
 
-  const authContext = useContext(AuthContext);
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.auth.user)
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+
   return (
     <>
       <div className={'nav-container'}>
@@ -11,9 +15,9 @@ export const Navbar = () => {
         <nav id="sidebar" className={'nav-item-container'}>
           <NavLink to="/" className={"nav-item"}>Home</NavLink>
           <NavLink to="/game">Game</NavLink>
-          {authContext.isLoggedIn && <div>{authContext.user}</div>}
-          {authContext.isLoggedIn ? <button onClick={() => authContext.logout()}>Logout</button> :
-            <button onClick={() => authContext.login('demo_user')}>Login</button>}
+          {user && <div>{user}</div>}
+          {isLoggedIn ? <button onClick={() => dispatch(logout())}>Logout</button> :
+            <button onClick={() => dispatch(login('demo_user'))}>Login</button>}
         </nav>
       </div>
       <hr />

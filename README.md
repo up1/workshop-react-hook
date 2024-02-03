@@ -2,7 +2,7 @@
 
 ## Run project
 ```
-$git clone  -b main demo
+$git clone https://github.com/up1/workshop-react-hook.git -b main demo
 $cd demo
 $npm i
 $npm run dev
